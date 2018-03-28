@@ -4,4 +4,9 @@
 
 {% block body %}
     <h1>List Leaf</h1>
+    <ul>
+        {% for leaf in leafs %}
+            <li>{{ leaf.title }} (by {{ leaf.seller }})</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
