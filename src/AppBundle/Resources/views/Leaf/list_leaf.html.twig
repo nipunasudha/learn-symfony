@@ -6,7 +6,11 @@
     <h1>List Leaf</h1>
     <ul>
         {% for leaf in leafs %}
-            <li>{{ leaf.title }} (by {{ leaf.seller }})</li>
+            <li><a href="{{ path('show_leaf',{'id':leaf.id}) }}">
+                    {{ leaf.title }} (by {{ leaf.seller }})
+                </a>
+            </li>
         {% endfor %}
     </ul>
+    <a href="{{ path('add_leaf') }}" class="btn btn-warning btn-lg">Add Leaf</a>
 {% endblock %}

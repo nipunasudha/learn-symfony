@@ -16,12 +16,24 @@ class LeafController extends Controller
     /**
      * @Route("/leaf/list", name="list_leaf")
      */
-    public function listLeafAction()
+    public function listLeafAction(Request $request)
     {
         $leafs = $this->getDoctrine()->getRepository('AppBundle:Leaf')
             ->findAll();
         return $this->render('@App/Leaf/list_leaf.html.twig', array(
             'leafs' => $leafs
+        ));
+    }
+
+    /**
+     * @Route("/leaf/show/{id}", name="show_leaf")
+     */
+    public function showLeafAction($id, Request $request)
+    {
+        $leaf = $this->getDoctrine()->getRepository('AppBundle:Leaf')
+            ->find($id);
+        return $this->render('@App/Leaf/show_leaf.html.twig', array(
+            'leaf' => $leaf
         ));
     }
 
